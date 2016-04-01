@@ -20,8 +20,8 @@ export LANG=en_US.UTF-8
 
 
 ###pyfem icin
-export PYTHONPATH="/home/cc/Paketler/pyfem-1.0/"
-alias  pyfem='python2.7 /home/cc/Paketler/pyfem-1.0/PyFEM.py'
+#export PYTHONPATH="/home/cc/Paketler/pyfem-1.0/"
+#alias  pyfem='python2.7 /home/cc/Paketler/pyfem-1.0/PyFEM.py'
 
 ###
 
@@ -133,29 +133,40 @@ PS1="\u \t \w \n>>> "
 
 ###KENDI KOMUTLARIM####
 
-#alias ara="yaourt"
 alias ara="pacaur -Ss"
 alias ara-pacman="pacman -Ss"
 alias pacupdate="sudo pacman -Syu"
-#alias pacupdate-aur="yaourt -Syu --aur"
 alias pacupdate-aur="pacaur -Syu --devel --needed"
 alias kaldir-rnsc="sudo pacman -Rnsc"
 alias yukle="sudo pacman -S"
+alias yukle-aur="pacaur -S"
 alias hemenkapan="shutdown -h now"
 alias 2saatekapan="sudo shutdown -h 120"
 alias 3saatekapan="sudo shutdown -h 180"
 alias kapan="sudo shutdown -h"
 alias kapan-iptal="sudo shutdown -c"
+alias sgit="killall"
 alias matlabac="(cd ~/Paketler/matlab/yukleme/bin/ && ./matlab)"
-alias matlabac-terminal="(cd ~/Paketler/matlab/yukleme/bin/ && ./matlab -nosplash -nodesktop)"
+alias matlabac-cli="(cd ~/Paketler/matlab/yukleme/bin/ && ./matlab -nosplash -nodesktop)"
 alias rahatdesktop="(cd ~/Scripts/kullanilan/ && ./rahatdesktop)"
 alias teknikdesktop="(cd ~/Scripts/kullanilan/ && ./teknikdesktop)"
-alias yedekleme="cd ~/Scripts/bin/ && ./yedekalma.sh"
+alias yedekal="cd ~/Scripts/kullanilan/ && ./yedekal"
 alias oturumkapa="openbox --exit"
 alias kimvarulan="nmap -sP 192.168.2.1/24"
 alias kimvarulan1="sudo nmap -sP -PS22,3389 192.168.2.1/24"
 alias kimvarulan2="sudo nmap -sP -PU161 192.168.2.1/24 #custom UDP scan"
 alias kimvarulan3="nmap -sP -PA21,22,25,3389 192.168.2.1/24 #21 is used by ftp"
-alias o-terminal="octave-cli"
+alias o-cli="octave-cli"
 alias o-dark="GTK2_RC_FILES=/usr/share/themes/Numix-DarkBlue/gtk-2.0/gtkrc octave"
-alias ls="ls -a"
+alias internetvarmi="(cd ~/Scripts/kullanilan/ && ./internetvarmi)"
+alias b="cd .."
+alias h="cd ~/"
+alias f="cd"
+alias q="exit"
+alias e="vim"
+alias ee="gvim"
+alias m="mutt"
+alias lsa="ls -a"
+alias adviban="cd ~/YuksekLisans/AdvancedVibrationAnalysis/AdVibAn"
+alias rs-istanbul="redshift -l 41.02:28.98"
+alias gitnotlari="cat ~/Scripts/kullanilan/gitnotlari | less"
