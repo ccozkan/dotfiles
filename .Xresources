@@ -1,54 +1,52 @@
-! Use a nice truetype font and size by default... 
-xterm*faceName: DejaVu Sans Mono Book
-xterm*faceSize: 11
+URxvt.font: xft:monospace:size:10
+!URxvt.font: xft:terminus:size:25
+URxvt.scrollBar: false
 
-! Every shell is a login shell by default (for inclusion of all necessary environment variables)
-xterm*loginshell: true
+*foreground: white
+*background: black
 
-! I like a LOT of scrollback...
-xterm*savelines: 16384
-
-! double-click to select whole URLs :D
-xterm*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
-
-xterm*scrollTtyOutput: false 
-
-
-!
-! ! DOS-box colours...siyah-gri
-! xterm*foreground: rgb:a8/a8/a8
-! xterm*background: rgb:00/00/00
-
-!!siyah yesil
-xterm*foreground: rgb:12/ff/00
-xterm*background: rgb:00/00/00
-
-
-!! xterm*color0: rgb:00/00/00
- xterm*color1: rgb:a8/00/00
- xterm*color2: rgb:00/a8/00
- xterm*color3: rgb:a8/54/00
- xterm*color4: rgb:00/00/a8
- xterm*color5: rgb:a8/00/a8
- xterm*color6: rgb:00/a8/a8
- xterm*color7: rgb:a8/a8/a8
- xterm*color8: rgb:54/54/54
- xterm*color9: rgb:fc/54/54
- xterm*color10: rgb:54/fc/54
- xterm*color11: rgb:fc/fc/54
- xterm*color12: rgb:54/54/fc
- xterm*color13: rgb:fc/54/fc
- xterm*color14: rgb:54/fc/fc
- xterm*color15: rgb:fc/fc/fc
-!
-! ! right hand side scrollbar...
-! xterm*rightScrollBar: true
-! xterm*ScrollBar: true
-!
-! ! stop output to terminal from jumping down to bottom of scroll again
-! xterm*scrollTtyOutput: false
+*color0:  #2E3436
+*color1:  #a40000
+*color2:  #4E9A06
+*color3:  #C4A000
+*color4:  #3465A4
+*color5:  #75507B
+*color6:  #ce5c00
+*color7:  #babdb9
+*color8:  #555753
+*color9:  #EF2929
+*color10: #8AE234
+*color11: #FCE94F
+*color12: #729FCF
+*color13: #AD7FA8
+*color14: #fcaf3e
+*color15: #EEEEEC
 
 
 
+URxvt.perl-ext-common: fullscreen,default,clipboard,url-select,keyboard-select,tabbedex
+URxvt.keysym.F11: perl:fullscreen:switch
+URxvt.url-select.launcher:  chromium
+URxvt.url-select.underline: true
+URxvt.keysym.M-u:           perl:url-select:select_next
+URxvt.keysym.M-Escape:      perl:keyboard-select:activate
+URxvt.keysym.M-s:           perl:keyboard-select:search
+IRC*iconFile:              /usr/share/icons/Tango/32x32/apps/internet-group-chat.png
+URxvt.tabbed.new-button: true
+URXvt.tabbed.reopen-on-close: yes
+URxvt.keysym.Control-t: perl:tabbedex:new_tab
+URxvt.keysym.Shift-Right: perl:tabbedex:next_tab
+URxvt.keysym.Shift-Left: perl:tabbedex:prev_tab
+URxvt.tabbed.no-tabbedex-keys: true
 
-
+! Tabbedex colors
+URxvt.tabbed.tabbar-fg:   244
+!URxvt.tabbed.tabbar-bg:   16
+URxvt.tabbed.tab-fg:      255
+URxvt.tabbed.tab-bg:      52
+URxvt.tabbed.bell-tab-fg: 255
+URxvt.tabbed.bell-tab-bg: 160
+URxvt.tabbed.bell-fg:     244
+URxvt.tabbed.bell-bg:     17
+URxvt.tabbed.title-fg:    28
+URxvt.tabbed.title-bg:    16
