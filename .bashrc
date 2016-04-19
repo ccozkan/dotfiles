@@ -30,7 +30,9 @@ export LANG=en_US.UTF-8
 setxkbmap -option grp:switch,grp:alt_shift_toggle,grp_led:­scroll us,tr
 
 
-##renklerdiring
+##############################################################################
+################------TERMINAL GIRIS RENKLENDIRME KODLARI------###############
+##############################################################################
 #PS1="\[\033[35m\]\t\[\033[m\]-\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\]\$"
 
 #PS1='\[\e[0;32m\]\u\[\e[m\] \[\e[1;34m\]\w\[\e[m\] 
@@ -46,6 +48,9 @@ setxkbmap -option grp:switch,grp:alt_shift_toggle,grp_led:­scroll us,tr
 #PS1="\n\\[\e[01;34m\]┌────(\[\e[01;35m\] @${HOSTNAME%%.*} \[\e[01;34m\])───────────(\[\e[01;37m\u\e[01;34m\])───────────(\[\e[01;33m\t\e[01;34m\])────────────────────────|\[\e[01;34m\]\n\[\e[01;34m\]└────(\[\e[01;32m \w \e[01;34m\])────( \[\e[01;32m\]$ \[\e[01;37m\]"
 #---------------
 
+################################################################################
+###############---------RENK KODLARI----------------------------------##########
+################################################################################
 # Reset
 Color_Off='\e[0m'       # Text Reset
 
@@ -121,18 +126,21 @@ On_IWhite='\e[0;107m'   # White
 
 
 
-####PS1="\[$BGreen\]\u \[$Green\]\t \[$BWhite\]\w \n\[$BIRed\]$ \[$White\]$Color_Off"
+#PS1="\[$BGreen\]\u \[$Green\]\t \[$BWhite\]\w \n\[$BIRed\]$ \[$White\]$Color_Off"
+#PS1="\[$BGreen\]\u \[$BBlue\]\t \[$BWhite\]\w \n\[$BIRed\]$ \[$White\][$Yellow" 
+PS1="\[$BGreen\]\u \[$BBlue\]\t \[$BWhite\]\w \n\[$BIRed\]$ \[$White\]$Color_Off"
 #PS1="\[$Blue\]\u \[$Blue\]\t \[$Red\]\w \n\[$BIRed\]$ \[$Black\]$Color_Off
 #PS1="\[$Blue\]\u \[$Blue\]\t \[$Blue\]\w \n\[$BIRed\]$ $Color_Off"
 
 #PS1="\[$BIRed\]\u \[$BIBlue\]\t \[$BBlue\]\w \n\[$BIGreen\]>>> \[$White\]$Color_Off"
 
-PS1="\u \t \w \n>>> "
+#PS1="\u \t \w \n>>> "
 
-
-
+#######################
 ###KENDI KOMUTLARIM####
+#######################
 
+shopt -s autocd
 alias ara="pacaur -Ss"
 alias ara-pacman="pacman -Ss"
 alias pacupdate="sudo pacman -Syu"
@@ -141,24 +149,19 @@ alias kaldir-rnsc="sudo pacman -Rnsc"
 alias yukle="sudo pacman -S"
 alias yukle-aur="pacaur -S"
 alias hemenkapan="shutdown -h now"
+alias 1saatekapan="sudo shutdown -h 60"
 alias 2saatekapan="sudo shutdown -h 120"
 alias 3saatekapan="sudo shutdown -h 180"
 alias kapan="sudo shutdown -h"
 alias kapan-iptal="sudo shutdown -c"
 alias sgit="killall"
-alias matlabac="(cd ~/Paketler/matlab/yukleme/bin/ && ./matlab)"
-alias matlabac-cli="(cd ~/Paketler/matlab/yukleme/bin/ && ./matlab -nosplash -nodesktop)"
-alias rahatdesktop="(cd ~/Scripts/kullanilan/ && ./rahatdesktop)"
-alias teknikdesktop="(cd ~/Scripts/kullanilan/ && ./teknikdesktop)"
-alias yedekal="cd ~/Scripts/kullanilan/ && ./yedekal"
 alias oturumkapa="openbox --exit"
 alias kimvarulan="nmap -sP 192.168.2.1/24"
 alias kimvarulan1="sudo nmap -sP -PS22,3389 192.168.2.1/24"
-alias kimvarulan2="sudo nmap -sP -PU161 192.168.2.1/24 #custom UDP scan"
-alias kimvarulan3="nmap -sP -PA21,22,25,3389 192.168.2.1/24 #21 is used by ftp"
+alias kimvarulan2="sudo nmap -sP -PU161 192.168.2.1/24"
+alias kimvarulan3="nmap -sP -PA21,22,25,3389 192.168.2.1/24"
 alias o-cli="octave-cli"
 alias o-dark="GTK2_RC_FILES=/usr/share/themes/Numix-DarkBlue/gtk-2.0/gtkrc octave"
-alias internetvarmi="(cd ~/Scripts/kullanilan/ && ./internetvarmi)"
 alias b="cd .."
 alias h="cd ~/"
 alias f="cd"
@@ -167,6 +170,25 @@ alias e="vim"
 alias ee="gvim"
 alias m="mutt"
 alias lsa="ls -a"
+alias rm="rm -i"
+alias rs-ipt="killall redshift"
+alias rs-ist="redshift -l 41.02:28.98 &"
+alias hdmi-on="xrandr --output HDMI1 --auto"
+alias hdmi-off="xrandr --output HDMI1 --off"
+alias py2yukleme='python2.7 setup.py install --user --record yuklenenler.txt'
+alias py3yukleme='python setup.py install --user --record yuklenenler.txt'
+
+#########################
+
+
+alias teknikdesktop="(cd ~/Scripts/kullanilan/ && ./teknikdesktop)"
 alias adviban="cd ~/YuksekLisans/AdvancedVibrationAnalysis/AdVibAn"
-alias rs-istanbul="redshift -l 41.02:28.98"
 alias gitnotlari="cat ~/Scripts/kullanilan/gitnotlari | less"
+alias matlabac="(cd ~/Paketler/matlab/yukleme/bin/ && ./matlab)"
+alias matlabac-cli="(cd ~/Paketler/matlab/yukleme/bin/ && ./matlab -nosplash -nodesktop)"
+alias yedekal="cd ~/Scripts/kullanilan/ && ./yedekal"
+alias rahatdesktop="(cd ~/Scripts/kullanilan/ && ./rahatdesktop)"
+alias internetvarmi="(cd ~/Scripts/kullanilan/ && ./internetvarmi)"
+alias havadurumu="(cd ~/Scripts/kullanilan/ && ./havadurumu)"
+alias sarki="(cd ~/.local/bin && ./mps)"
+alias nuke="pacman -Rns $(pacman -Qtdq)"
