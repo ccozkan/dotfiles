@@ -191,4 +191,4 @@ alias rahatdesktop="(cd ~/Scripts/kullanilan/ && ./rahatdesktop)"
 alias internetvarmi="(cd ~/Scripts/kullanilan/ && ./internetvarmi)"
 alias havadurumu="(cd ~/Scripts/kullanilan/ && ./havadurumu)"
 alias sarki="(cd ~/.local/bin && ./mps)"
-alias nuke="pacman -Rns $(pacman -Qtdq)"
+alias nuke='pacman -Rns $(pacman -Qtdq)'
