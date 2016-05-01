@@ -1,0 +1,57 @@
+ background no
+    use_xft yes
+    xftfont HandelGotD:size=8
+    xftalpha 0.5
+    update_interval 4.0
+    total_run_times 0
+    own_window yes
+    own_window_type desktop
+    own_window_transparent yes
+    own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+    own_window yes
+    double_buffer yes
+    minimum_size 200 5
+    maximum_width 250
+    draw_shades no
+    draw_outline no
+    draw_borders no
+    draw_graph_borders yes
+    default_color white
+    default_shade_color red
+    default_outline_color green
+    alignment bl
+    gap_x 100
+    gap_y 80
+    no_buffers yes
+    uppercase no
+    cpu_avg_samples 2
+    override_utf8_locale no
+    
+    
+ 
+TEXT
+
+${color black}${font adsf:normal:size=10}
+cpu $alignr${cpu cpu1}%  $alignc ${cpu cpu2}% 
+ram $alignr ${mem} / ${memmax}  $alignc ${memperc}%
+swap $alignr ${swap} / ${swapmax} $alignc ${swapperc}%
+processes $processes $alignr running $alignc $running_processes 
+ ${color red}${font CPU:bold:size=12} ${hr 2}${color black}${font adsf:normal:size=10}
+core ${alignr}${execpi 5  sensors | grep "Core 0" | awk '{print $3}' | cut -c2-3} *C ${alignr}${execpi 5  sensors | grep "Core 1" | awk '{print $3}' | cut -c2-3} *C
+temp ${alignr}${acpitemp} *C
+ ${color red}${font CPU:bold:size=12}${hr 2} ${color }${font adsf:normal:size=10}${color black}
+root    $alignr${fs_used /}/${fs_size /}$alignc  ${fs_used_perc /}%
+home    $alignr${fs_used /home}/${fs_size /home}  $alignc${fs_used_perc /home}%
+windows $alignr${fs_used /mnt/windows}/${fs_size /mnt/windows}  ${alignc}${fs_used_perc /mnt/windows}%
+depo    $alignr${fs_used /mnt/depo}/${fs_size /mnt/depo}  $alignc${fs_used_perc /mnt/depo}%
+  ${color red}${font CPU:bold:size=12}cpu${hr 2} ${color black}${font adsf:normal:size=10}      
+${top name 1}$alignr${top pid 1}$alignc${top cpu 1}
+${top name 2}$alignr${top pid 2}$alignc${top cpu 2}
+  ${color red}${font CPU:bold:size=12}mem${hr 2} ${font adsf:normal:size=10} ${color black}
+${top_mem name 1}$alignr${top_mem pid 1}$alignc${top_mem mem 1}
+${top_mem name 2}$alignr${top_mem pid 2}$alignc${top_mem mem 2}
+  ${color red}${font CPU:bold:size=12}${hr 2} 
+${color black}${font adsf:normal:size=10}$kernel $alignr $uptime 
+quality: $alignr ${wireless_link_qual_perc wlan0}%
+ip address: $alignr ${addr wlan0}
+dw:${color black}${downspeedf wlan0}kb/s $alignr ${color black}up:${color black}${upspeedf wlan0}kb/s
