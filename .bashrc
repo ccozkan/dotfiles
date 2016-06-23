@@ -1,3 +1,5 @@
+#naber amk#
+
 #
 # ~/.bashrc
 #
