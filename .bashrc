@@ -29,7 +29,21 @@ export LANG=en_US.UTF-8
 ##dil degistirmece
 setxkbmap -option grp:switch,grp:alt_shift_toggle,grp_led:­scroll us,tr
 
+##~~~~~~~~NPM PAKETLERINI LOCAL YUKLEME
 
+# NPM packages in homedir
+NPM_PACKAGES="$HOME/.npm-packages"
+
+# Tell our environment about user-installed node tools
+PATH="$NPM_PACKAGES/bin:$PATH"
+# Unset manpath so we can inherit from /etc/manpath via the `manpath` command
+unset MANPATH  # delete if you already modified MANPATH elsewhere in your configuration
+MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
+
+# Tell Node about these packages
+NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
+
+##~~~~~~~~~~~NPM PAKETLERINI LOCAL YUKLEME KOMUTLARI BITTI
 ##############################################################################
 ################------TERMINAL GIRIS RENKLENDIRME KODLARI------###############
 ##############################################################################
@@ -48,9 +62,12 @@ setxkbmap -option grp:switch,grp:alt_shift_toggle,grp_led:­scroll us,tr
 #PS1="\n\\[\e[01;34m\]┌────(\[\e[01;35m\] @${HOSTNAME%%.*} \[\e[01;34m\])───────────(\[\e[01;37m\u\e[01;34m\])───────────(\[\e[01;33m\t\e[01;34m\])────────────────────────|\[\e[01;34m\]\n\[\e[01;34m\]└────(\[\e[01;32m \w \e[01;34m\])────( \[\e[01;32m\]$ \[\e[01;37m\]"
 #---------------
 
-################################################################################
-###############---------RENK KODLARI----------------------------------##########
-################################################################################
+######################################################
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#                    RENK KODLARI                    #    
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+######################################################
+
 # Reset
 Color_Off='\e[0m'       # Text Reset
 
@@ -136,36 +153,42 @@ PS1="\[$BGreen\]\u \[$BBlue\]\t \[$BWhite\]\w \n\[$BIRed\]$ \[$White\]$Color_Off
 
 #PS1="\u \t \w \n>>> "
 
-#######################
-###KENDI KOMUTLARIM####
-#######################
+###############################
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#       KENDI KOMUTLARIM      #
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+###############################
 
 shopt -s autocd
 alias ara="pacaur -Ss"
 alias ara-pacman="pacman -Ss"
 alias pacupdate="sudo pacman -Syu"
+alias pacupdate-syyu='sudo pacman -Syyu'
 alias pacupdate-aur="pacaur -Syu --devel --needed"
 alias kaldir-rnsc="sudo pacman -Rnsc"
 alias yukle="sudo pacman -S"
 alias yukle-aur="pacaur -S"
 alias hemenkapan="shutdown -h now"
+alias 5dkkapan='shutdown -h 5'
 alias 1saatekapan="sudo shutdown -h 60"
 alias 2saatekapan="sudo shutdown -h 120"
 alias 3saatekapan="sudo shutdown -h 180"
 alias kapan="sudo shutdown -h"
 alias kapan-iptal="sudo shutdown -c"
-alias sgit="killall"
+alias sgit="kill -15"
+alias sgit2='kill -9'
 alias oturumkapa="openbox --exit"
 alias kimvarulan="nmap -sP 192.168.2.1/24"
 alias kimvarulan1="sudo nmap -sP -PS22,3389 192.168.2.1/24"
 alias kimvarulan2="sudo nmap -sP -PU161 192.168.2.1/24"
 alias kimvarulan3="nmap -sP -PA21,22,25,3389 192.168.2.1/24"
 alias o-cli="octave-cli"
-alias o-dark="GTK2_RC_FILES=/usr/share/themes/Numix-DarkBlue/gtk-2.0/gtkrc octave"
+##alias o-dark="GTK2_RC_FILES=/usr/share/themes/Numix-DarkBlue/gtk-2.0/gtkrc octave"
 alias b="cd .."
 alias h="cd ~/"
 alias f="cd"
 alias q="exit"
+alias r="reset"
 alias e="vim"
 alias ee="gvim"
 alias m="mutt"
@@ -173,17 +196,23 @@ alias lsa="ls -a"
 alias rm="rm -i"
 alias rs-ipt="killall redshift"
 alias rs-ist="redshift -l 41.02:28.98 &"
-alias hdmi-on="xrandr --output HDMI1 --auto"
-alias hdmi-off="xrandr --output HDMI1 --off"
+alias hdmi-i="xrandr --output HDMI1 --auto"
+alias hdmi-o="xrandr --output HDMI1 --off"
 alias py2yukleme='python2.7 setup.py install --user --record yuklenenler.txt'
 alias py3yukleme='python setup.py install --user --record yuklenenler.txt'
 
-#########################
+alias py2yukleme-sudo='sudo python2.7 setup.py install --record yuklenenler.txt'
+alias py3yukleme-sudo='sudo python setup.py install --record yuklenenler.txt'
+alias sarki_update='sh ~/Scripts/kullanilan/sarki_update'
 
+
+ #########################
 
 alias teknikdesktop="(cd ~/Scripts/kullanilan/ && ./teknikdesktop)"
 alias adviban="cd ~/YuksekLisans/AdvancedVibrationAnalysis/AdVibAn"
+alias ttarayici="(cd ~/Paketler/tor-browser-linux64-5.5.4_en-US.tar/tor-browser_en-US/Browser && ./start-tor-browser)"
 alias gitnotlari="cat ~/Scripts/kullanilan/gitnotlari | less"
+alias bazikodlar="cat ~/Scripts/kullanilan/bazikodlar | less"
 alias matlabac="(cd ~/Paketler/matlab/yukleme/bin/ && ./matlab)"
 alias matlabac-cli="(cd ~/Paketler/matlab/yukleme/bin/ && ./matlab -nosplash -nodesktop)"
 alias yedekal="cd ~/Scripts/kullanilan/ && ./yedekal"
@@ -191,4 +220,30 @@ alias rahatdesktop="(cd ~/Scripts/kullanilan/ && ./rahatdesktop)"
 alias internetvarmi="(cd ~/Scripts/kullanilan/ && ./internetvarmi)"
 alias havadurumu="(cd ~/Scripts/kullanilan/ && ./havadurumu)"
 alias sarki="(cd ~/.local/bin && ./mps)"
-alias nuke='pacman -Rns $(pacman -Qtdq)'
+alias sarkiyt="mpsyt"
+alias nuke='sudo pacman -Rns $(pacman -Qtdq)'
+alias acilsusamacil='dtrx'
+alias pacinfo='pacman -Si'
+alias pacinfo-aur='pacaur -Si'
+alias google-earth-temizle='rm -r ~/.googleearth/Cache'
+alias wifi-nmcli='nmtui'
+alias ddprog='sudo dcfldd'
+alias rasppibaglan='ssh pi@192.168.2.127'
+# Ekrana boyutuna gore yaziyi tekrar ayarlama #
+#LINES=$(tput lines)
+#for (( i=1; i<=$LINES; i++ )); do echo; done; clear
+alias x='startx'
+alias youtube-dl-ses='youtube-dl --extract-audio --audio-format mp3'
+alias youtube-dl-mp4iyi='youtube-dl -f 22'
+alias please='sudo !!'
+alias pidkac='ps ax | grep'
+alias tarla='tar -czvf'
+alias cmus='cmus --listen 0.0.0.0'
+alias nevarneyok='ncdu'
+alias sil='rm -rf'
+alias bashedit='vim ~/.bashrc +'
+alias bashupd='. ~/.bashrc'
+alias clc='clear'
+alias reklamadmin='firefox 192.168.2.127/admin'
+alias modemadmin='firefox 192.168.2.1'
+alias cache-temizle='rm -rf ~/.cache/*'
