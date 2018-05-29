@@ -104,6 +104,8 @@ filetype plugin indent on    " required
 
 colorscheme gruvbox 
 set cmdheight=2
+set clipboard=unnamedplus                                                   
+
 
 ""__gvimi tam ekran yapabilmek icin
 map <silent> <F11>
