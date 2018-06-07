@@ -8,7 +8,7 @@ set number
 set wildmenu
 ""__imlec yanip-sonmeme
 set guicursor=a:blinkon0  
-set guifont=Monospace\ 12
+set guifont=Monospace\ 15
 set expandtab
 set tabstop=4
 set background=dark
@@ -63,10 +63,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 
-""##########################################################""
 ""--------------------pluginlerim:)-------------------------""
-""##########################################################""
-
 Plugin 'sjl/badwolf'
 Plugin 'morhetz/gruvbox'
 Plugin 'vim-scripts/matlab.vim'
@@ -90,10 +87,8 @@ Plugin 'easymotion/vim-easymotion'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-
-""##########################################################""
+Plugin 'jiangmiao/auto-pairs'
 ""__________________Pluginlerim Bitti_______________________""
-""##########################################################""
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -102,11 +97,12 @@ filetype plugin indent on    " required
 ""_______________PluginManager Komutlari Bitti______________""
 ""##########################################################""
 
-colorscheme gruvbox 
+inoremap <Space><Space> <Esc>/<++><Enter>"_c4l
+colorscheme badwolf 
 set cmdheight=2
-set clipboard=unnamedplus                                                   
-
+set clipboard=unnamedplus
 
 ""__gvimi tam ekran yapabilmek icin
 map <silent> <F11>
 \    :call system("wmctrl -ir " . v:windowid . " -b toggle,fullscreen")<CR>
+
